@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Index</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,17 +11,14 @@
   </head>
   <body>
       <div class="">
-        <div id="post">
-          <h3><p><a href="{{ route('post.create') }}">novo</a></p></h3>
-          <hr>
-          <h1><p>Index do Post</p></h1>
-          @foreach ($posts as $post)
-              <h3><p>{{ $post->title }}</p></h3>
-          @endforeach
-          <hr>
-          @foreach ($posts as $post)
-              <h3><p>{{ $post->content }}</p></h3>
-          @endforeach
+        <h1><p>Cad Post</p></h1>
+        <div id="form">
+            <form action="{{ route('post.store') }}" method="POST">
+                @csrf
+                <input type="text" name="title" id="title" placeholder="title">
+                <textarea name="content" id="content" cols="30" rows="4" placeholder="content"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
       </div>
     <!-- Optional JavaScript -->

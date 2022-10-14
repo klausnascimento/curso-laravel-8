@@ -15,4 +15,23 @@ class PostController extends Controller
 
         return view('pages.index', compact('posts'));
     }
+
+    public function create()
+    {
+        $posts = Post::get();
+
+        // dd($posts);
+
+        return view('pages.create', compact('posts'));
+    }
+
+    public function store(Request $request)
+    {
+        $post = Post::create($request->all());
+
+        return redirect()->route('post.index');
+        // dd('cad new post');
+        // dd($posts);
+        // dd($request->all());
+    }
 }

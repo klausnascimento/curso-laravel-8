@@ -5,7 +5,9 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-Route::get('post', [PostController::class, 'index']);
+Route::get('post', [PostController::class, 'index'])->name('post.index');
+Route::get('create', [PostController::class, 'create'])->name('post.create');
+Route::post('post', [PostController::class, 'store'])->name('post.store');
 
 // $this->get('url', 'NomeController@index')->name('url.index');
 // $this->get('url/create', 'NomeController@create')->name('url.create');
